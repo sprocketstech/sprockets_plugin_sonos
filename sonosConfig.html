@@ -1,0 +1,11 @@
+<div class="col-md-12" ng-controller="sonosConfigController">
+    <div class="form-group" validation-status="validation.controller">
+        <label for="zone">Zone: </label>
+        <button class="btn btn-sm btn-flat pull-right" ng-click="refresh()"><i class="fa fa-refresh"></i></button>
+        <select ng-model="config.controller" class="form-control"
+                ng-options="item.id as item.name for item in availableControllers" required>
+        </select>
+    </div>
+
+
+</div>

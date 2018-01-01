@@ -1,0 +1,37 @@
+<div ng-controller="sonosCardController">
+    <div class="row">
+        <div class="col-lg-5">
+            <img ng-src="{{values.sensors.ALBUM_ART_URI.value}}" height="128px">
+        </div>
+        <div class="col-lg-1">&nbsp;</div>
+        <div class="col-lg-6">
+            <div>&nbsp;</div>
+            <table>
+                <tr><td class="small">Song: </td><td class="small">{{values.sensors.SONG.value}}</td></tr>
+                <tr><td class="small">Artist: </td><td class="small">{{values.sensors.ARTIST.value}}</td></tr>
+                <tr><td class="small">Album: </td><td class="small">{{values.sensors.ALBUM.value}}</td></tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div role="group">
+                <button class="btn btn-primary" ng-click="previous()"><i class="fa fa-backward"></i></button>
+                <button class="btn btn-primary" ng-click="togglePause()"><i class="fa fa-pause" ng-show="values.controls.PLAY.value"></i><i class="fa fa-play" ng-show="!values.controls.PLAY.value"></i></button>
+                <button class="btn btn-primary" ng-click="next()"><i class="fa fa-forward"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" ng-click="toggleMute()"><i class="fa fa-volume-up" ng-show="values.controls.MUTE.value"></i><i class="fa fa-volume-off" ng-show="!values.controls.MUTE.value"></i></button>
+            </span>
+                <input type="range" ng-model="values.controls.VOLUME.value" min-value="0" max-value="100" class="form-control" convert-to-number ng-change="changeVolume()" ng-model-options="{debounce: 500}">
+            </div>
+        </div>
+    </div>
+</div>
